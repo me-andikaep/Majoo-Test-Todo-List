@@ -21,6 +21,7 @@ const DetailModal = ({ show, closeModal, data }) => {
 		});
 		closeModal();
 	};
+  
 
 	return (
 		<Modal
