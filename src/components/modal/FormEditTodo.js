@@ -13,7 +13,7 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 				id: initialValue.id,
 				title: initialValue.title,
 				description: initialValue.description,
-				status: initialValue ? initialValue.description : 0,
+				status: initialValue ? initialValue.status : 0,
 				createdAt: new Date(initialValue.createdAt).toString(),
 			});
 		}
@@ -31,7 +31,6 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 		const idx = TodoList.findIndex((item) => item.id === data.id);
 
 		if (idx !== -1) TodoList[idx] = data;
-
 		dispatch({
 			type: ActionsTodo.EDIT_TODO,
 			todos: TodoList,
@@ -59,6 +58,7 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 						</Col>
 						<Col md={12} lg={9} className='text-desc'>
 							<input
+								className='form-input'
 								type='text'
 								onChange={(e) => setData({ ...data, title: e.target.value })}
 								value={data.title || ''}
@@ -71,6 +71,7 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 						</Col>
 						<Col md={12} lg={9} className='text-desc'>
 							<input
+								className='form-input'
 								type='text'
 								value={data.description || ''}
 								onChange={(e) =>
@@ -85,8 +86,11 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 						</Col>
 						<Col md={12} lg={9} className='text-desc'>
 							<select
+								className='form-input'
 								value={data.status || ''}
-								onChange={(e) => setData({ ...data, status: e.target.value })}
+								onChange={(e) =>
+									setData({ ...data, status: Number(e.target.value) })
+								}
 							>
 								<option value={0}>UnComplete</option>
 								<option value={1}>Complete</option>

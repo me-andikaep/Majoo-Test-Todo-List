@@ -66,6 +66,7 @@ const FormTodo = ({ show, closeModal, title, TodoList }) => {
 						</Col>
 						<Col md={12} lg={9} className='text-desc'>
 							<input
+								className='form-input'
 								type='text'
 								onChange={(e) => setData({ ...data, title: e.target.value })}
 							/>
@@ -77,6 +78,7 @@ const FormTodo = ({ show, closeModal, title, TodoList }) => {
 						</Col>
 						<Col md={12} lg={9} className='text-desc'>
 							<input
+								className='form-input'
 								type='text'
 								onChange={(e) =>
 									setData({ ...data, description: e.target.value })

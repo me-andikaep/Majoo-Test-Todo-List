@@ -33,7 +33,10 @@ const DetailModal = ({ show, closeModal, data }) => {
 		>
 			<FormEditTodo
 				show={showModal}
-				closeModal={() => setShowModal(false)}
+				closeModal={() => {
+					setShowModal(false);
+					closeModal();
+				}}
 				title='Edit todo'
 				TodoList={TodoList}
 				initialValue={data}
@@ -71,7 +74,12 @@ const DetailModal = ({ show, closeModal, data }) => {
 				</Stack>
 			</Modal.Body>
 			<Modal.Footer>
-				<Button className='btn-primary' onClick={() => setShowModal(true)}>
+				<Button
+					className='btn-primary'
+					onClick={() => {
+						setShowModal(true);
+					}}
+				>
 					Update
 				</Button>
 
