@@ -1,0 +1,8 @@
+@mixin text-title {
+  color: $Secondary-dark;
+  font-weight: bold;
+}
+
+@mixin text-desc {
+  color: $Secondary;
+}

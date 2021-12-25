@@ -1,0 +1,62 @@
+body{
+  background-color: $Background;
+}
+
+
+.todo-card{
+  .header{
+    background-color: $Primary;
+    color: $White;
+    font-weight: bold;
+    height: 60px;
+  }
+}
+
+.todo-list-stack{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .icon-status{
+    padding: 0px 15px;
+
+    .icon{
+      width: '20px'; 
+      height: '20px';
+    }
+  }
+
+  .content{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .text-title{
+    @include text-title()
+  }
+
+  .text-desc{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    @include text-desc();
+  }
+}
+
+.modal-todo{
+  .header{
+    font-weight: bold;
+    color: $Primary;
+  }
+
+  .text-title{
+    @include text-title()
+  }
+
+  .text-desc{
+    @include text-desc()
+  }
+}

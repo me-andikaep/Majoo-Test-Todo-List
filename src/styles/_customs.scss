@@ -1,0 +1,29 @@
+.btn-primary {
+  background-color: $Primary;
+  border-color: $White;
+  font-weight: 500;
+
+  &.red {
+    background-color: $Red;
+
+    &:hover {
+      background-color: $Red-dark;
+    }
+  }
+
+  &:hover {
+    background-color: $Primary-dark;
+    border-color: $White;
+  }
+
+  &:focus {
+    background-color: $Primary-dark;
+    border-color: $White;
+    box-shadow: none !important;
+  }
+
+  &:disabled {
+    background-color: $Secondary;
+    border-color: $Secondary-dark;
+  }
+}
