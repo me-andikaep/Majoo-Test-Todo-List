@@ -14,7 +14,7 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 				title: initialValue.title,
 				description: initialValue.description,
 				status: initialValue ? initialValue.description : 0,
-				createdAt: new Date(initialValue.description).toString(),
+				createdAt: new Date(initialValue.createdAt).toString(),
 			});
 		}
 	}, [initialValue]);
@@ -28,18 +28,13 @@ const FormEditTodo = ({ show, closeModal, title, TodoList, initialValue }) => {
 	});
 
 	const onSave = () => {
-		const newArr = TodoList.slice();
+		const idx = TodoList.findIndex((item) => item.id === data.id);
 
-		newArr.forEach((item) => {
-			if (item.id === data.id) {
-				return data;
-			} else {
-				return item;
-			}
-		});
+		if (idx !== -1) TodoList[idx] = data;
+
 		dispatch({
 			type: ActionsTodo.EDIT_TODO,
-			todos: newArr,
+			todos: TodoList,
 		});
 		closeModal();
 	};

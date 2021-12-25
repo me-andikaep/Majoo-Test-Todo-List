@@ -17,8 +17,6 @@ function App() {
 
 	const [showModal, setShowModal] = useState(false);
 
-	console.log('dataList', dataList);
-
 	const GetTodoList = () => {
 		GetTodo(dispatch);
 	};
